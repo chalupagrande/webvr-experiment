@@ -16,17 +16,17 @@ renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap; // default THREE.PCFShadowMap
 document.body.appendChild(renderer.domElement);
 
-var ray = new RayInput(camera, renderer.domElement);
+// var ray = new RayInput(camera, renderer.domElement);
 // ray.setSize(renderer.getSize())
-scene.add(ray.getMesh())
+// scene.add(ray.getMesh())
 
 const effect = new THREE.StereoEffect( renderer );
 // const effect = new THREE.AnaglyphEffect( renderer );
 effect.setSize(w,h);
 
-let button = WEBVR.createButton(renderer)
-document.body.appendChild(button)
-console.log(button)
+// let button = WEBVR.createButton(renderer)
+// document.body.appendChild(button)
+// console.log(button)
 
 const orientationControls = new THREE.DeviceOrientationControls( camera );
 // const orbitControls = new THREE.OrbitControls( camera );
@@ -50,25 +50,25 @@ for(var i = 0; i < 500; i++){
   cube.position.z = (Math.random() - 0.5) * 1000
   cube.castShadow = true
   cube.recieveShadow = true
-  ray.add(cube)
+  // ray.add(cube)
 
   scene.add( cube );
 }
-ray.on(raydown, (mesh) =>{
-  mesh.set
-})
+// ray.on(raydown, (mesh) =>{
+//   mesh.set
+// })
 
 scene.add( camera );
 camera.position.z = 10;
 
-// document.body.appendChild(stats.dom)
+document.body.appendChild(stats.dom)
 
 function animate(){
   window.requestAnimationFrame(animate);
   // orbitControls.update();
   orientationControls.update();
-  ray.update()
-  // stats.update();
+  // ray.update()
+  stats.update();
   // renderer.render(scene, camera);
   effect.render(scene, camera);
 }
