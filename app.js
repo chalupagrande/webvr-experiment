@@ -20,16 +20,16 @@ document.body.appendChild(renderer.domElement);
 // ray.setSize(renderer.getSize())
 // scene.add(ray.getMesh())
 
-const effect = new THREE.StereoEffect( renderer );
-// const effect = new THREE.AnaglyphEffect( renderer );
+// const effect = new THREE.StereoEffect( renderer );
+const effect = new THREE.AnaglyphEffect( renderer );
 effect.setSize(w,h);
 
 // let button = WEBVR.createButton(renderer)
 // document.body.appendChild(button)
 // console.log(button)
 
-const orientationControls = new THREE.DeviceOrientationControls( camera );
-// const orbitControls = new THREE.OrbitControls( camera );
+// const orientationControls = new THREE.DeviceOrientationControls( camera );
+const orbitControls = new THREE.OrbitControls( camera );
 var light = new THREE.AmbientLight( 0x222222 );
 scene.add( light );
 var light = new THREE.DirectionalLight( 0xffffff );
@@ -41,7 +41,7 @@ scene.add( light );
 
 
 const box = new THREE.BoxBufferGeometry(10,10,10);
-const green = new THREE.MeshLambertMaterial({color: 0x00ff00});
+const green = new THREE.MeshLambertMaterial({color: 0xcccccc});
 
 for(var i = 0; i < 500; i++){
   let cube = new THREE.Mesh(box, green);
@@ -65,8 +65,8 @@ document.body.appendChild(stats.dom)
 
 function animate(){
   window.requestAnimationFrame(animate);
-  // orbitControls.update();
-  orientationControls.update();
+  orbitControls.update();
+  // orientationControls.update();
   // ray.update()
   stats.update();
   // renderer.render(scene, camera);
